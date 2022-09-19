@@ -2,6 +2,7 @@
 * Data Type:
 * String  ex: "This is string text because those text Rep with double/single or `Backtick`  quote"
 * Number ex: 0 1 2 3 4 5
+* Template literal: ``
 *
 * */
 
