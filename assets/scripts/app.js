@@ -1,16 +1,15 @@
 /*
-* Operators
-* Addition (+)
-* Subtraction (-)
-* Multiplication (*)
-* Division (/)
-* Remainder (%)
-* Exponentiation (**)
+* Data Type:
+* String  ex: "This is string text because those text Rep with double/single or `Backtick`  quote"
+* Number ex: 0 1 2 3 4 5
+*
 * */
 
-let currentResult = 0;
-currentResult = (currentResult + 10) * 3/2 -1;
-doubleResult = currentResult ** 2;
-// This is function to show output the result;
-outputResult(currentResult, '');
-console.log(doubleResult)
+const defaultResult = 0;
+let currentResult;
+
+currentResult = (defaultResult  + 10) * 3 / 2 -1;
+
+let calculationDescription = `(${defaultResult} + 10) * 3/2 -1`
+
+outputResult(currentResult, calculationDescription)
