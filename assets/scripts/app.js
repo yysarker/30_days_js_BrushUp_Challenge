@@ -1,21 +1,45 @@
-/*
-* Function
-* Function is "code on demand"
- */
+const defaultNumber = 0;
+let currentResult = defaultNumber;
 
-//Define Function
-
-const defaultResult = 0;
-let currentResult;
-
-function add (num1, num2){
-    const result = num1 + num2;
-    return result;
+function getUserNumberInput() {
+    return parseInt(userInput.value);
 }
-currentResult = add(2,3)
+function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
+    const calculationDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`
+    outputResult(currentResult, calculationDescription);
+}
+function add() {
+    const enterNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult = currentResult + enterNumber;
+    createAndWriteOutput('+', initialResult, enterNumber);
 
-// currentResult = (defaultResult + 10) * 3/2 - 1;
-let calcutaionDescription = `(${defaultResult} + 10) * 3/2 -1`;
-outputResult(currentResult, calcutaionDescription)
+}
+function subtract() {
+    const enterNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult = currentResult - enterNumber;
+    createAndWriteOutput('-', initialResult, enterNumber);
+}
+function multiply() {
+    const enterNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult = currentResult * enterNumber;
+    createAndWriteOutput('*', initialResult, enterNumber);
+
+}
+function divide() {
+    const enterNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult = currentResult / enterNumber;
+    createAndWriteOutput('/', initialResult, enterNumber);
+
+}
+
+addBtn.addEventListener('click', add);
+subtractBtn.addEventListener('click', subtract);
+multiplyBtn.addEventListener('click', multiply);
+divideBtn.addEventListener('click', divide);
+
 
 
