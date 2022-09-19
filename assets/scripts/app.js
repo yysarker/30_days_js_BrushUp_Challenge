@@ -1,16 +1,14 @@
 /*
-* Data Type:
-* String  ex: "This is string text because those text Rep with double/single or `Backtick`  quote"
-* Number ex: 0 1 2 3 4 5
-* Template literal: ``
-*
-* */
+* Function
+* Function is "code on demand"
+ */
 
-const defaultResult = 0;
-let currentResult;
+//Define Function
 
-currentResult = (defaultResult  + 10) * 3 / 2 -1;
+function greetUser(name) {
+    alert('Hi ' + name);
+}
+//call function
+greetUser('Yeahyea Sarker!');
 
-let calculationDescription = `(${defaultResult} + 10) * 3/2 -1`
 
-outputResult(currentResult, calculationDescription)
