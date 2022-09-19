@@ -1,24 +1,16 @@
 /*
-* Variable Naming Allowed
-* camelCase // userName
-* Only letters and digits // ageGroup5
-* Starting with $ is allowed // $kindOFSpecial
-* Starting with _ is allowed // _internalValue
+* Operators
+* Addition (+)
+* Subtraction (-)
+* Multiplication (*)
+* Division (/)
+* Remainder (%)
+* Exponentiation (**)
 * */
 
-/*
-* Variable Naming Not Allowed / Not Recommended
-* let user_name // Allowed but bad practice!
-* let 21Players // Starting digits not allowed
-* let user-b // No special characters!
-* let let // Keywords not allowed
-* */
-
-let userName = 'Navil Sarker';
-const userAge = 27;
-let userJob = 'Software Engineer';
-
-
-console.log(userName);
-console.log(userAge)
-console.log(userJob)
+let currentResult = 0;
+currentResult = (currentResult + 10) * 3/2 -1;
+doubleResult = currentResult ** 2;
+// This is function to show output the result;
+outputResult(currentResult, '');
+console.log(doubleResult)
