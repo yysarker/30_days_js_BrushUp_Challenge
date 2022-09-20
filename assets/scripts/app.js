@@ -1,45 +1,52 @@
 const defaultNumber = 0;
-let currentResult = defaultNumber;
+let currentNumber = defaultNumber;
 
-function getUserNumberInput() {
-    return parseInt(userInput.value);
+// Gets input from Input field
+function getUserInputNumber() {
+    return +userInput.value;
 }
+
+// Generates and writes calculation log
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
-    const calculationDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`
-    outputResult(currentResult, calculationDescription);
+    const calcDescription = `(${resultBeforeCalc} ${operator} ${calcNumber})`;
+    outputResult(currentNumber, calcDescription);//came from vendor file
 }
+
+// This function work for Addition
 function add() {
-    const enterNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult = currentResult + enterNumber;
-    createAndWriteOutput('+', initialResult, enterNumber);
-
+    const enterNumber = getUserInputNumber();
+    const initialNumber = currentNumber;
+    currentNumber = currentNumber + enterNumber;
+    createAndWriteOutput('+', initialNumber, enterNumber )
 }
+
+// This function work for Subtraction
 function subtract() {
-    const enterNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult = currentResult - enterNumber;
-    createAndWriteOutput('-', initialResult, enterNumber);
+    const enterNumber = getUserInputNumber();
+    const initialNumber = currentNumber;
+    currentNumber = currentNumber - enterNumber;
+    createAndWriteOutput('-', initialNumber, enterNumber )
 }
+
+// This function work for Multiply
 function multiply() {
-    const enterNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult = currentResult * enterNumber;
-    createAndWriteOutput('*', initialResult, enterNumber);
-
+    const enterNumber = getUserInputNumber();
+    const initialNumber = currentNumber;
+    currentNumber = currentNumber * enterNumber;
+    createAndWriteOutput('*', initialNumber, enterNumber )
 }
+
+// This function work for Division
 function divide() {
-    const enterNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult = currentResult / enterNumber;
-    createAndWriteOutput('/', initialResult, enterNumber);
-
+    const enterNumber = getUserInputNumber();
+    const initialNumber = currentNumber;
+    currentNumber = currentNumber / enterNumber;
+    createAndWriteOutput('/', initialNumber, enterNumber )
 }
 
+// Here we call function for Addition , subtraction, multiplication , division for output
 addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
-
-
 
