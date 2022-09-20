@@ -4,7 +4,7 @@ let logEntries=[];
 
 // Gets input from Input field
 function getUserInputNumber() {
-    return +userInput.value;
+    return parseInt(userInput.value);
 }
 
 // Generates and writes calculation log
@@ -24,40 +24,39 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newNumber)
     console.log(logEntries);
 }
 
-// This function work for Addition
+function calculationOperatorCheck(calculationType) {
+    const enterNumber = getUserInputNumber();
+    const initialNumber = currentResult;
+    let mathOperator;
+
+    if (calculationType === "ADD"){
+        currentResult += enterNumber;
+        mathOperator = '+';
+    }else if(calculationType === "SUBTRACT") {
+        currentResult -= enterNumber;
+        mathOperator = '-';
+    }else if(calculationType === "MULTIPLY"){
+        currentResult *= enterNumber;
+        mathOperator = '*';
+    }else {
+        currentResult /= enterNumber;
+        mathOperator = '/';
+    }
+    createAndWriteOutput(mathOperator, initialNumber, enterNumber );
+    writeToLog(calculationType,initialNumber,enterNumber,currentResult);
+}
+
 function add() {
-    const enterNumber = getUserInputNumber();
-    const initialNumber = currentResult;
-    currentResult += enterNumber; // Full form of this code is currentResult = currentResult + enterNumber
-    createAndWriteOutput('+', initialNumber, enterNumber );
-    writeToLog('Add',initialNumber,enterNumber,currentResult);
+    calculationOperatorCheck("ADD")
 }
-
-// This function work for Subtraction
 function subtract() {
-    const enterNumber = getUserInputNumber();
-    const initialNumber = currentResult;
-    currentResult -= enterNumber;
-    createAndWriteOutput('-', initialNumber, enterNumber )
-    writeToLog('Subtract',initialNumber,enterNumber,currentResult);
+    calculationOperatorCheck("SUBTRACT")
 }
-
-// This function work for Multiply
 function multiply() {
-    const enterNumber = getUserInputNumber();
-    const initialNumber = currentResult;
-    currentResult *= enterNumber;
-    createAndWriteOutput('*', initialNumber, enterNumber )
-    writeToLog('Multiply',initialNumber,enterNumber,currentResult);
+    calculationOperatorCheck("MULTIPLY")
 }
-
-// This function work for Division
 function divide() {
-    const enterNumber = getUserInputNumber();
-    const initialNumber = currentResult;
-    currentResult /=  enterNumber;
-    createAndWriteOutput('/', initialNumber, enterNumber )
-    writeToLog('Divide',initialNumber,enterNumber,currentResult);
+    calculationOperatorCheck("DIVIDE")
 }
 
 // Here we call function for Addition , subtraction, multiplication , division for output
@@ -65,4 +64,3 @@ addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
-
