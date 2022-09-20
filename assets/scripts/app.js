@@ -19,7 +19,13 @@ function add() {
     const initialNumber = currentNumber;
     currentNumber += enterNumber; // Full form of this code is currentResult = currentResult + enterNumber
     createAndWriteOutput('+', initialNumber, enterNumber );
-    logEntries.push(enterNumber);
+    const logEntry = {
+        operation: "Add",
+        prevResult: initialNumber,
+        number: enterNumber,
+        result: currentNumber
+    }
+    logEntries.push(logEntry);
     console.log(logEntries);
 }
 
