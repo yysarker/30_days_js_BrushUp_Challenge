@@ -13,20 +13,24 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
     outputResult(currentNumber, calcDescription);//came from vendor file
 }
 
+function writeToLog(operationIdentifier, prevResult, operationNumber, newNumber) {
+    const logEntry = {
+        operation: operationIdentifier,
+        prevResult: prevResult,
+        number: operationNumber,
+        result: newNumber
+    }
+    logEntries.push(logEntry);
+    console.log(logEntries);
+}
+
 // This function work for Addition
 function add() {
     const enterNumber = getUserInputNumber();
     const initialNumber = currentNumber;
     currentNumber += enterNumber; // Full form of this code is currentResult = currentResult + enterNumber
     createAndWriteOutput('+', initialNumber, enterNumber );
-    const logEntry = {
-        operation: "Add",
-        prevResult: initialNumber,
-        number: enterNumber,
-        result: currentNumber
-    }
-    logEntries.push(logEntry);
-    console.log(logEntries);
+    writeToLog('Add',initialNumber,enterNumber,currentNumber);
 }
 
 // This function work for Subtraction
@@ -35,6 +39,7 @@ function subtract() {
     const initialNumber = currentNumber;
     currentNumber -= enterNumber;
     createAndWriteOutput('-', initialNumber, enterNumber )
+    writeToLog('Subtract',initialNumber,enterNumber,currentNumber);
 }
 
 // This function work for Multiply
@@ -43,6 +48,7 @@ function multiply() {
     const initialNumber = currentNumber;
     currentNumber *= enterNumber;
     createAndWriteOutput('*', initialNumber, enterNumber )
+    writeToLog('Multiply',initialNumber,enterNumber,currentNumber);
 }
 
 // This function work for Division
@@ -51,6 +57,7 @@ function divide() {
     const initialNumber = currentNumber;
     currentNumber /=  enterNumber;
     createAndWriteOutput('/', initialNumber, enterNumber )
+    writeToLog('Divide',initialNumber,enterNumber,currentNumber);
 }
 
 // Here we call function for Addition , subtraction, multiplication , division for output
