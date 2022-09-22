@@ -140,3 +140,29 @@ attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healAttackHandler);
 logBtn.addEventListener('click', printLogHandler);
+
+
+for (let i = 1; i <= 10; i++) {
+    console.log(i + ' Your Name');
+}
+
+const newArrayName = ['Apple','Banana','Pineapple','Watermelon','Habil','Kabil','Navil'];
+let j = 0;
+console.log("---For of loop----");
+for (const health of newArrayName) {
+    console.log(health);
+    j++;
+}// used for Array element print
+
+let k = 0;
+const forInForObject = {
+    name: 'User Name',
+    age: 27,
+    job: 'empty',
+    hobby: 'cricket'
+}
+console.log("---For in loop----");
+for (const forInForObjectKey in forInForObject) {
+    console.log(forInForObjectKey);
+    k++;
+}// used for Object key/property print
