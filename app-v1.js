@@ -77,36 +77,26 @@ startGameBtn.addEventListener("click", () => {
 
 //Not related to game
 
-const sumUp = (resultHandler, ...number) =>{
+const combine = (resultHandler, operator, ...number) =>{
     const validateNumber = (number) => {
         return isNaN(number) ? 0 : number;
     };
 
     let sum = 0;
     for (const numberElement of number) {
-        sum += validateNumber(numberElement);
+        if (operator === 'ADD'){
+            sum += validateNumber(numberElement);
+        }else {
+            sum -= validateNumber(numberElement);
+        }
     }
     resultHandler(sum);//callback function inside a function used as a pointer
 };
 
-/*
-* Alternative of rest operator.
-* Argument gives object type array,
-* It's look like strange
-* And I don't use this.
- */
-const subtractUp = function (resultHandler, ...number) {
-    let sum = 0;
-    for (const numberElement of number) {
-        sum += numberElement;
-    }
-   resultHandler(sum);
+const showResult = (messageText, result) => {
+    alert( messageText + ' ' + result);
 };
 
-const showResult = (result) => {
-    alert('The result after adding all number is: ' + result)
-};
-
-sumUp(showResult,4,-5,6,'test',8,9,10);
-sumUp(showResult,30,14,35,56,-71,18,-9,10);
-subtractUp(showResult,1,2,3,4,5,6,7,8,9);
+combine(showResult.bind(this, 'The result after adding all numbers is: '),'ADD',4,-5,6,'test',8,9,10);
+combine(showResult.bind(this, 'The result after adding all numbers is:'),'ADD',30,14,35,56,-71,18,-9,10);
+combine(showResult.bind(this, 'The result after subtract all numbers is:'),'SUBTRACT ',1,2,3,4,5,6,7,8,9);
