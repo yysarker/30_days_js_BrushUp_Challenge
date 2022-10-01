@@ -21,26 +21,10 @@ const getPlayerChoice = () => {
 const getComputerChoice = () => {
     const randomValue = Math.random();
     return randomValue < 0.34 ? ROCK : randomValue < 0.67 ? PAPER : SCISSORS;
-
-    // if (randomValue < 0.34){
-    //     return ROCK;
-    // }else if (randomValue < 0.67){
-    //     return PAPER;
-    // }else {
-    //     return SCISSORS;
-    // }
 };
+
 const getWinner = (cChoice, pChoice = DEFAULT_USER_CHOICE) =>
     cChoice === pChoice ? RESULT_DRAW : (cChoice === ROCK && pChoice === PAPER || cChoice === PAPER && pChoice === SCISSORS || cChoice === SCISSORS && pChoice === PAPER) ? RESULT_PLAYER_WINS : RESULT_COMPUTER_WINS;
-
-    // if (cChoice === pChoice){
-    //     return RESULT_DRAW;
-    // }else if (cChoice === ROCK && pChoice === PAPER || cChoice === PAPER && pChoice === SCISSORS || cChoice === SCISSORS && pChoice === PAPER){
-    //     return RESULT_PLAYER_WINS;
-    // }else {
-    //     return RESULT_COMPUTER_WINS;
-    // }
-
 
 startGameBtn.addEventListener("click", () => {
     if (gameIsRunning){
@@ -53,30 +37,16 @@ startGameBtn.addEventListener("click", () => {
     let winner;
     playerChoice ? (winner = getWinner(computerChoice, playerChoice)) : (winner = getWinner(computerChoice));
 
-    // if (playerChoice){
-    //     winner = getWinner(computerChoice, playerChoice);
-    // }else {
-    //     winner = getWinner(computerChoice);
-    // }
-
 
     let message = `You picked ${playerChoice ? playerChoice : DEFAULT_USER_CHOICE}, computer picked ${computerChoice}, therefore you `;
 
     winner === RESULT_DRAW ? (message = message + 'had a draw.') : winner === RESULT_PLAYER_WINS ? (message = message + 'win.') : (message = message + 'lost.');
 
-    // if (winner === RESULT_DRAW){
-    //     message = message + 'had a draw.';
-    // }else if (winner === RESULT_PLAYER_WINS){
-    //     message = message + 'win.';
-    // }else {
-    //     message = message + 'lost.';
-    // }
     alert(message);
 });
 
 
 //Not related to game
-
 const combine = (resultHandler, operator, ...number) =>{
     const validateNumber = (number) => {
         return isNaN(number) ? 0 : number;
