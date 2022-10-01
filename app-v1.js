@@ -9,7 +9,7 @@ const DEFAULT_USER_CHOICE = 'ROCK';
 
 let gameIsRunning = false;
 
-const getPlayerChoice = function () {
+const getPlayerChoice = () => {
     const selection = prompt(`${ROCK}, ${PAPER} or ${SCISSORS}?`, '').toUpperCase();
         if(selection !== ROCK && selection !== PAPER && selection !== SCISSORS){
             alert(`Invalid choice! We chose ${DEFAULT_USER_CHOICE} for you!`);
@@ -18,7 +18,7 @@ const getPlayerChoice = function () {
     return selection;
 };
 
-const getComputerChoice = function () {
+const getComputerChoice = () => {
     const randomValue = Math.random();
     if (randomValue < 0.34){
         return ROCK;
@@ -28,7 +28,7 @@ const getComputerChoice = function () {
         return SCISSORS;
     }
 };
-const getWinner = function (pChoice, cChoice){
+const getWinner = (pChoice, cChoice) => {
     if (cChoice === pChoice){
         return RESULT_DRAW;
     }else if (cChoice === ROCK && pChoice === PAPER || cChoice === PAPER && pChoice === SCISSORS || cChoice === SCISSORS && pChoice === PAPER){
