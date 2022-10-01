@@ -77,12 +77,16 @@ startGameBtn.addEventListener("click", () => {
 
 //Not related to game
 
-const sumUp = (a, b, ...number) =>{
+const sumUp = (resultHandler, ...number) =>{
+    const validateNumber = (number) => {
+        return isNaN(number) ? 0 : number;
+    };
+
     let sum = 0;
     for (const numberElement of number) {
-        sum += numberElement;
+        sum += validateNumber(numberElement);
     }
-    return sum;
+    resultHandler(sum);//callback function inside a function used as a pointer
 };
 
 /*
@@ -91,14 +95,18 @@ const sumUp = (a, b, ...number) =>{
 * It's look like strange
 * And I don't use this.
  */
-const subtractUp = function () {
+const subtractUp = function (resultHandler, ...number) {
     let sum = 0;
-    for (const numberElement of arguments) {
+    for (const numberElement of number) {
         sum += numberElement;
     }
-    return sum;
+   resultHandler(sum);
 };
 
-console.log(sumUp(1,3,4,-5,6,7,-8,9,10));
-console.log(sumUp(-1,30,14,35,56,-71,18,9,10));
-console.log(subtractUp(-1,2,3,4,5,6,7,8,9));
+const showResult = (result) => {
+    alert('The result after adding all number is: ' + result)
+};
+
+sumUp(showResult,4,-5,6,'test',8,9,10);
+sumUp(showResult,30,14,35,56,-71,18,-9,10);
+subtractUp(showResult,1,2,3,4,5,6,7,8,9);
