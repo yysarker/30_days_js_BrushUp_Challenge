@@ -85,5 +85,20 @@ const sumUp = (a, b, ...number) =>{
     return sum;
 };
 
+/*
+* Alternative of rest operator.
+* Argument gives object type array,
+* It's look like strange
+* And I don't use this.
+ */
+const subtractUp = function () {
+    let sum = 0;
+    for (const numberElement of arguments) {
+        sum += numberElement;
+    }
+    return sum;
+};
+
 console.log(sumUp(1,3,4,-5,6,7,-8,9,10));
 console.log(sumUp(-1,30,14,35,56,-71,18,9,10));
+console.log(subtractUp(-1,2,3,4,5,6,7,8,9));
